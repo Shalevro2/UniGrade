@@ -1,0 +1,33 @@
+[1mdiff --git a/.github/workflows/Firebase Deployment.yml b/.github/workflows/Firebase Deployment.yml[m
+[1mindex e69de29..d17914f 100644[m
+[1m--- a/.github/workflows/Firebase Deployment.yml[m	
+[1m+++ b/.github/workflows/Firebase Deployment.yml[m	
+[36m@@ -0,0 +1,28 @@[m
+[32m+[m[32mname: Firebase Deployment[m
+[32m+[m
+[32m+[m[32mon:[m
+[32m+[m[32m  push:[m
+[32m+[m[32m    branches:[m
+[32m+[m[32m      - main[m
+[32m+[m
+[32m+[m[32mjobs:[m
+[32m+[m[32m  deploy:[m
+[32m+[m[32m    runs-on: ubuntu-latest[m
+[32m+[m
+[32m+[m[32m    steps:[m
+[32m+[m[32m      - name: Checkout code[m
+[32m+[m[32m        uses: actions/checkout@v2[m
+[32m+[m
+[32m+[m[32m      - name: Set up Node.js[m
+[32m+[m[32m        uses: actions/setup-node@v2[m
+[32m+[m[32m        with:[m
+[32m+[m[32m          node-version: '14'[m
+[32m+[m
+[32m+[m[32m      - name: Install dependencies[m
+[32m+[m[32m        run: npm install[m
+[32m+[m
+[32m+[m[32m      - name: Build and deploy to Firebase[m
+[32m+[m[32m        run: |[m
+[32m+[m[32m          npm run build[m
+[32m+[m[32m          npm install -g firebase-tools[m
+[32m+[m[32m          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}[m
