@@ -4,8 +4,7 @@
 </p>
 
 # UniGrade
-Welcome to UniGrade
-Your Academic Success Starts Here.
+Welcome to UniGrade, Your Academic Success Starts Here.
       Discover the power of streamlined grade management,
       personalized analytics, and real-time tracking. Sign up now and take control of your education.
 
