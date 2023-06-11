@@ -1,0 +1,136 @@
+
+.container {
+    height: 100%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.heading {
+    font-size: 48px;
+    color: var(--unigrade-color);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.subheading {
+    font-size: 18px;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 40px;
+    white-space: pre;
+  }
+
+  .btn-container {
+    margin-top: 20px;
+  }
+
+body {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+ 
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
+.div-logo {
+    position:absolute;
+    top:0;
+    left:0;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/*logo styling*/
+/* === removing default button style ===*/
+.button-logo {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+  
+/* button styling */
+.button-logo {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #26a6ce;
+    --fs-size: 3em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+  /* hover */
+.button-logo:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+/*sign in and sign up buttons*/
+.sign-in-btn {
+    margin: 5px;;
+    --green: #1BFD9C;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.7em 2.7em;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--unigrade-color);
+    background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+    color: var(--unigrade-color);
+    box-shadow: inset 0 0 10px white;
+}
+  
+.sign-in-btn:hover {
+    color: white;
+    box-shadow: inset 0 0 10px white;
+}
+
+.sign-in-btn:before {
+    content: "";
+    position: absolute;
+    left: -4em;
+    width: 4em;
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+}
+
+.sign-in-btn:hover:before {
+    transform: translateX(15em);
+}

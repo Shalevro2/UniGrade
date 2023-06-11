@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniGrade</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.22.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.22.1/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.22.1/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/sign_up.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="form">
+        <ul class="tab-group">
+            <li class="tab active"><a href="#signup" style="border-radius: 15px!important;margin-right:8x;">Sign Up</a>
+            </li>
+            <li class="tab"><a href="#login" style="border-radius: 15px!important;margin-left:8px;">Log In</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="signup">
+                <h1>Register</h1>
+                <form action="/" method="post">
+                    <div class="top-row">
+
+                    </div>
+                    <div class="field-wrap">
+                        <input type="email" required placeholder="Email Address" />
+                    </div>
+                    <div class="field-wrap">
+                        <input type="password" required placeholder="Password" />
+                    </div>
+                    <button type="submit" class="button button-block" />Sign Up</button>
+                </form>
+            </div>
+            <div id="login">
+                <h1>Welcome Back!</h1>
+                <form action="/" method="post">
+                    <div class="field-wrap">
+                        <input type="email" required placeholder="Email" />
+                    </div>
+                    <div class="field-wrap">
+                        <input type="password" required placeholder="Password" />
+                    </div>
+                    <p class="forgot"><a href="https://www.web-leb.com/code">Forgot Password?</a></p>
+                    <button class="button button-block" />Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/sign_up.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadEl = document.querySelector('#load');
+            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+            // // The Firebase SDK is initialized and available here!
+            //
+            // firebase.auth().onAuthStateChanged(user => { });
+            // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+            // firebase.firestore().doc('/foo/bar').get().then(() => { });
+            // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+            // firebase.messaging().requestPermission().then(() => { });
+            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+            // firebase.analytics(); // call to activate
+            // firebase.analytics().logEvent('tutorial_completed');
+            // firebase.performance(); // call to activate
+            //
+            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+            try {
+                let app = firebase.app();
+                let features = [
+                    'auth',
+                    'database',
+                    'firestore',
+                    'functions',
+                    'messaging',
+                    'storage',
+                    'analytics',
+                    'remoteConfig',
+                    'performance',
+                ].filter(feature => typeof app[feature] === 'function');
+                loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+            } catch (e) {
+                console.error(e);
+                loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+            }
+        });
+    </script>
+</body>
+
+</html>
