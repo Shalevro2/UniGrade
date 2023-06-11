@@ -41,3 +41,39 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
     $(target).fadeIn(600);
     
   });
+
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAwcnp0pIBn4M4fU-M89D2li0vImSxv-oI",
+  authDomain: "ude-d8926.firebaseapp.com",
+  projectId: "ude-d8926",
+  storageBucket: "ude-d8926.appspot.com",
+  messagingSenderId: "137442087140",
+  appId: "1:137442087140:web:5d85d36b89111b87e31cf1",
+  measurementId: "G-TYJDTDV5TJ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+$(document).ready(()=>{
+    $("#signup").click(()=>{
+      var email = $("#email").val();
+      var password = $("#password").val();
+
+      const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            window.location.href="./index.html";
+
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+        });
+    });
+})
