@@ -1,7 +1,15 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 import { getFirestore, updateDoc, doc, arrayUnion, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
-import { Course } from './Course';
+
+class Course{
+    constructor(name, points, year, semester){
+        this.name = name;
+        this.points = points;
+        this.year = year;
+        this.semester = semester;
+    }
+}
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyAwcnp0pIBn4M4fU-M89D2li0vImSxv-oI',
@@ -21,7 +29,9 @@ $(document).ready(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            $("#submit").on('click',async(e)=>{
+            $("#enter").on('click',async(e)=>{
+
+                console.log("click"); //test
 
                 const dbref = doc(db, "courses", uid);
                 const docsnap = await getDoc(dbref);
@@ -30,13 +40,14 @@ $(document).ready(()=>{
                 const points = $("#points").val();
                 const year = $("#year").val();
                 const semester = $("#semester").val();
+                console.log(name,points,year,semester);
 
-                const course = Course(name, points, year, semester);
+                const course = new Course(name, points, year, semester);
 
                 if (!docsnap.exists()) {
-                    setDoc(dbref, {courses : course});
+                    setDoc(dbref, {courses : Object.assign({}, course)});
                 } else {
-                    updateDoc(dbref,{courses:arrayUnion(course)});
+                    updateDoc(dbref,{courses:arrayUnion(Object.assign({}, course))});
                 }
 
                 $("#course").val("");
