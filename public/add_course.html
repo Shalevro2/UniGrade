@@ -78,22 +78,22 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Percent</th>
-                            <th>Grade</th>
+                            <th>Parts Of Grade</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="form-control" required></td>
-                            <td><input type="number" step="any" min="0" class="form-control" required></td>
-                            <td><input type="number" min="0" class="form-control" required></td>
+                            <td><input type="text" class="form-control" placeholder="course name" required></td>
+                            <td><input type="number" step="any" min="0" class="form-control" placeholder="precent"
+                                    required></td>
+                            <td><input type="number" min="0" class="form-control" placeholder="grade" required></td>
                         </tr>
                     </tbody>
 
                 </table>
+
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
             </form>
-            <button id="enter" class="btn btn-primary" >Submit</button>
         </div>
         <div class="expl-div">
             <h2>Fill the form:</h2>
@@ -109,8 +109,6 @@
                 form layout may vary.</p>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/add_course.js" type="module"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
