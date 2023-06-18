@@ -64,7 +64,7 @@ $(document).ready(() => {
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user;
-				window.location.href = './index.html';
+				window.location.href = './add_course.html';
 			})
 			.catch((error) => {
 				const errorCode = error.code;
