@@ -29,8 +29,17 @@ $(document).ready(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            $("#enter").on('click',async(e)=>{
-
+            $("#enter").on('click', async(e)=>{
+                var field = $('#add-course-form');
+    
+                if (field[0].checkValidity()) {
+                    // TODO add here succsess message 
+                } else {
+                    // TODO add here failed message 
+                    // Field is empty, show an error message or perform other actions
+                    alert("Please fill in the required field.");
+                    return;
+                }
                 console.log("click"); //test
 
                 const dbref = doc(db, "courses", uid);
