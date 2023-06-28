@@ -27,17 +27,8 @@ $(document).ready(()=>{
                 if (!docsnap.exists()) {
                     
                 } else {
-                    var avg = 0;
-                    var points = 0;
-                    var data = docsnap.data().courses
-                    for (var i = 0; i < data.length; i++) {
-                        console.log(data[i]);
-                        avg += data[i].grade*data[i].points;
-                        points += parseFloat(data[i].points);
-                        console.log(avg +" " + points)
-                      }
-                    avg /= points;
-                    pie(avg);
+                    pieCulc(docsnap);
+                    lineCulc(docsnap)
                 }
 
         } else {
@@ -87,22 +78,81 @@ function pie(avg) {
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
  }
- google.charts.setOnLoadCallback(pie);
+google.charts.setOnLoadCallback(pie);
 
- google.charts.setOnLoadCallback(trendline);
-function trendline() {
-  var data = google.visualization.arrayToDataTable([
-    ['Diameter', 'Age'],
-    [8, 37], [4, 19.5], [11, 52], [4, 22], [3, 16.5], [6.5, 32.8], [14, 72]]);
+function pieCulc(docsnap){
+    var avg = 0;
+    var points = 0;
+    var data = docsnap.data().courses
+    for (var i = 0; i < data.length; i++) {
+        avg += data[i].grade*data[i].points;
+        points += parseFloat(data[i].points);
+        }
+    avg /= points;
+    pie(avg);
+}
 
-  var options = {
-    title: 'Average',
-    hAxis: {title: 'years'},
-    vAxis: {title: 'Average'},
-    legend: 'none',
-    trendlines: { 0: {} }    // Draw a trendline for data series 0.
-  };
+function lineCulc(docsnap){
+    var avg_arr = [];
+    var data = docsnap.data().courses
+    for(var year=1; year<=7; year++){
+        for(var semester=1; semester<=2; semester++){
+            var avg = 0;
+            var points = 0;
+            var sem;
+            if(semester == 1){
+                sem = 'A';
+            }
+            else{
+                sem = 'B';
+            }
+            for (var i = 0; i < data.length; i++){
+                if(data[i].year == year && data[i].semester == sem){
+                    console.log(year+" "+sem+" "+data[i].grade +" " + data[i].points)
+                    avg += data[i].grade*data[i].points;
+                    points += parseFloat(data[i].points);
+                }
+            }
+            if(points == 0)
+                avg_arr[year+semester-2] = [year+semester-1, 0];
+            else
+                avg_arr[year+semester-2] = [year+semester-1, avg/points];
+        }
+    }
+    console.log(avg_arr);
+    lineChart(avg_arr);
+}
 
-  var chart = new google.visualization.ScatterChart(document.getElementById('trendline'));
-  chart.draw(data, options);
+
+google.charts.load('current', {'packages':['line']});
+google.charts.setOnLoadCallback(lineChart);
+
+function lineChart(data_arr) {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'semester');
+    data.addColumn('number', 'Average');
+
+    data.addRows(data_arr);
+
+    var options = {
+        chart: {
+            title: 'Average progress during the semesters',
+            subtitle: ''
+            },
+        width: 400,
+        height: 350,
+        backgroundColor: "#1A1918",
+        legend: 'none',
+        titleTextStyle: {
+            fontSize: 16,
+            color: 'white',
+            bold: true
+            },
+        legend: 'none',
+    };
+
+    var chart = new google.charts.Line(document.getElementById('lineChart'));
+
+    chart.draw(data, google.charts.Line.convertOptions(options));
 }
