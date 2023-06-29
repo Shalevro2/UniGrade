@@ -93,7 +93,7 @@ function pieCulc(docsnap){
 }
 
 function lineCulc(docsnap){
-    var avg_arr = [];
+    var avg_arr = [[0,0,0]];
     var data = docsnap.data().courses
     for(var year=1; year<=7; year++){
         for(var semester=1; semester<=2; semester++){
@@ -114,10 +114,18 @@ function lineCulc(docsnap){
                 }
             }
             if(points == 0)
-                avg_arr[year+semester-2] = [year+semester-1, 0];
+                avg_arr.push([year+semester-1, 0 , 0]);
             else
-                avg_arr[year+semester-2] = [year+semester-1, avg/points];
+                avg_arr.push([year+semester-1, avg/points, points]);
         }
+    }
+    console.log(avg_arr);
+    for(var i=1; i<avg_arr.length; i++){
+        avg_arr[i] = [
+            avg_arr[i][0],
+            (avg_arr[i][1]*avg_arr[i][2]+avg_arr[i-1][1]*avg_arr[i-1][2])/(avg_arr[i][2]+avg_arr[i-1][2]),
+            avg_arr[i][2]+avg_arr[i-1][2]
+        ]
     }
     console.log(avg_arr);
     lineChart(avg_arr);
@@ -132,6 +140,7 @@ function lineChart(data_arr) {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'semester');
     data.addColumn('number', 'Average');
+    data.addColumn('number', 'points');
 
     data.addRows(data_arr);
 
