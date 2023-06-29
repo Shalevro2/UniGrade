@@ -19,3 +19,4 @@ $("#navbar-animmenu").on("click","li",function(e){
 		"width": activeWidthNewAnimWidth + "px"
 	});
 });
+
