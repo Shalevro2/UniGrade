@@ -56,7 +56,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 $(document).ready(() => {
-	$('#signup').click(() => {
+	$('#signup-button').click(() => {
 		var email = $('#email').val();
 		var password = $('#password').val();
 
@@ -67,11 +67,13 @@ $(document).ready(() => {
 				window.location.href = './add_course.html';
 			})
 			.catch((error) => {
+				$(".error").text();
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				$(".error").text(errorMessage);
 			});
 	});
-	$('#login').click(() => {
+	$('#login-button').click(() => {
 		var email = $('#lemail').val();
 		var password = $('#lpassword').val();
 		signInWithEmailAndPassword(auth, email, password)
@@ -81,8 +83,10 @@ $(document).ready(() => {
 				window.location.href = './add_course.html';
 			})
 			.catch((error) => {
+				$(".error").text();
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				$(".error").text(errorMessage);
 			});
 	});
 });

@@ -44,7 +44,7 @@
         <div class="tab-content">
             <div id="signup">
                 <h1>Register</h1>
-                <form action="/" method="post">
+                <div>
                     <div class="top-row">
 
                     </div>
@@ -54,12 +54,13 @@
                     <div class="field-wrap">
                         <input id="password" type="password" required placeholder="Password" />
                     </div>
-                </form>
-                <button id="signup" type="submit" class="button button-block">Sign Up</button>
+                </div>
+                <button id="signup-button" type="submit" class="button button-block">Sign Up</button>
+                <div class="error mt-3 text-danger"></div>
             </div>
             <div id="login">
                 <h1>Welcome Back!</h1>
-                <form action="/" method="post">
+                <div>
                     <div class="field-wrap">
                         <input id="lemail" type="email" required placeholder="Email" />
                     </div>
@@ -68,8 +69,9 @@
                     </div>
                     <p class="forgot"><a href="https://www.web-leb.com/code">Forgot Password?</a></p>
 
-                </form>
-                <button id="login" class="button button-block">Login</button>
+                </div>
+                <button id="login-button" class="button button-block">Login</button>
+                <div class="error mt-3 text-danger"></div>
             </div>
         </div>
     </div>
