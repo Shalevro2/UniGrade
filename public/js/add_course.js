@@ -94,9 +94,9 @@ $(document).ready(function() {
     $("#addBtn").click(function() {
       var newRow = `
         <tr>
-          <td><input type="text" class="form-control" placeholder="course name" required></td>
-          <td><input type="number" step="any" min="0" class="form-control" placeholder="percent" required></td>
-          <td><input type="number" min="0" class="form-control" placeholder="grade" required></td>
+          <td><input type="text" class="form-control bg-dark text-white" placeholder="course name" required></td>
+          <td><input type="number" step="any" min="0" class="form-control bg-dark text-white" placeholder="percent" required></td>
+          <td><input type="number" min="0" class="form-control bg-dark text-white" placeholder="grade" required></td>
           <td>
             <button class="cssbuttons-io-button delete-button">
               <svg style="color: white" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11 8H4V7H11V8Z" fill="white"></path> </svg>

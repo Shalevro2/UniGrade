@@ -17,8 +17,9 @@ label {
   color: #def7ff;
 }
 
-#submit { 
+#enter { 
   background-color: var(--unigrade-color);
+  margin-top: 30px;
 }
 
 table {
@@ -38,12 +39,15 @@ color: #def7ff;
   opacity: 0.8;
   border-radius:  25px;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .expl-text {
   color: white !important;
   opacity: 1;
   white-space: pre-line;
+  line-height: 27px;
+
 }
 
 /* inputs css */
@@ -111,9 +115,9 @@ color: #def7ff;
   font-size: 12px;
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: white;
-  background: #26a6ce;
+  background:var(--unigrade-color);
   border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #26a6ce;
+  box-shadow: 0 0.7em 1.5em -0.5em var(--unigrade-color);
   letter-spacing: 0.05em;
   border-radius: 20em;
 }
@@ -123,9 +127,9 @@ color: #def7ff;
 }
 
 .cssbuttons-io-button:hover {
-  box-shadow: 0 0.5em 1.5em -0.5em #26a6ce;
+  box-shadow: 0 0.5em 1.5em -0.5em var(--unigrade-color);
 }
 
 .cssbuttons-io-button:active {
-  box-shadow: 0 0.3em 1em -0.5em #26a6ce;
+  box-shadow: 0 0.3em 1em -0.5em var(--unigrade-color);
 }
