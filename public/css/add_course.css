@@ -133,3 +133,7 @@ color: #def7ff;
 .cssbuttons-io-button:active {
   box-shadow: 0 0.3em 1em -0.5em var(--unigrade-color);
 }
+
+#div-failed-alert, #div-success-alert {
+  grid-column: 1/-1;
+}

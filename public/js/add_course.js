@@ -33,11 +33,14 @@ $(document).ready(()=>{
                 var field = $('#add-course-form');
     
                 if (field[0].checkValidity()) {
-                    // TODO add here succsess message 
+                    console.log("ofir gf");
+                    $("#div-success-alert").removeClass("d-none");
+                    $("#div-failed-alert").addClass("d-none");
+
                 } else {
-                    // TODO add here failed message 
                     // Field is empty, show an error message or perform other actions
-                    alert("Please fill in the required field.");
+                    $("#div-failed-alert").removeClass("d-none");
+                    $("#div-success-alert").addClass("d-none");
                     return;
                 }
                 console.log("click"); //test
