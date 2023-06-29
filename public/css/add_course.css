@@ -7,6 +7,19 @@ h2 {
   text-shadow: 2px 2px 4px #ffffff;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ffffff !important;
+}
+
 .main-div {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
@@ -64,7 +77,7 @@ color: #def7ff;
   outline: none;
   box-shadow: none;
   border: none;
-  color: #23242a;
+  color: #fff;
   font-size: 1em;
   letter-spacing: 0.05em;
   transition: 0.5s;
@@ -76,7 +89,7 @@ color: #def7ff;
   left: 0;
   padding: 20px 10px 10px;
   font-size: 1em;
-  color: #8f8f8f;
+  color: #fff;
   letter-spacing: 00.05em;
   transition: 0.5s;
   pointer-events: none;
