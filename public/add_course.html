@@ -1,248 +1,219 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>UniGrade</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.22.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.22.1/firebase-auth-compat.js"></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-database-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-firestore-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-functions-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-messaging-compat.js"
-    ></script>
-    <script defer src="/__/firebase/9.22.1/firebase-storage-compat.js"></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-analytics-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-remote-config-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/9.22.1/firebase-performance-compat.js"
-    ></script>
-    <!-- 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UniGrade</title>
+
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/9.22.1/firebase-app-compat.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/9.22.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-firestore-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-functions-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-messaging-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-storage-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-remote-config-compat.js"></script>
+        <script defer src="/__/firebase/9.22.1/firebase-performance-compat.js"></script>
+        <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script defer src="js/navbar.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/add_course.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-  </head>
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <script defer src="js/navbar.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/add_course.css" />
+        <link rel="stylesheet" type="text/css" href="css/navbar.css" />
 
-  <body>
-    <div id="navbar-animmenu">
-      <ul class="show-dropdown main-navbar">
-        <div class="hori-selector">
-          <div class="left"></div>
-          <div class="right"></div>
-        </div>
-        <li>
-          <a href="javascript:void(0);"
-            ><i class="fas fa-tachometer-alt"></i>Dashboard</a
-          >
-        </li>
-        <li class="active">
-          <a href="javascript:void(0);"
-            ><i class="far fa-address-book"></i>Address Book</a
-          >
-        </li>
-        <li>
-          <a href="javascript:void(0);"
-            ><i class="far fa-clone"></i>Components</a
-          >
-        </li>
-        <li>
-          <a href="javascript:void(0);"
-            ><i class="far fa-calendar-alt"></i>Calendar</a
-          >
-        </li>
-        <li>
-          <a href="javascript:void(0);"
-            ><i class="far fa-chart-bar"></i>Charts</a
-          >
-        </li>
-        <a href="#" class="btn btn-info btn-lg logout1">
-            <span class="glyphicon glyphicon-log-out"></span> Log out
-          </a>
-      </ul>
-    </div>
-    <div class="container main-div mt-3">
-      <div class="form-div">
-        <h1 style="margin-top: 15px;">Add Course</h1>
-        <form  id="add-course-form" action="">
-          <div class="main-div">
-            <div class="form-group">
-              <label for="year">Year</label>
-              <select
-                class="form-control form-select bg-dark text-white"
-                id="year"
-                required
-              >
-                <option value="">Select Year</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="semester">Semester</label>
-              <select
-                class="form-control form-select bg-dark text-white"
-                id="semester"
-                required
-              >
-                <option value="">Select Semester</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-              </select>
-            </div>
-          </div>
-          <div class="main-div">
-            <div class="form-group">
-              <div class="inputbox">
-                <input type="text" id="course" required />
-                <span>Course Name</span>
-                <i></i>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="inputbox">
-                <input type="number" step="any" min="0" id="points" required />
-                <span>Points</span>
-                <i></i>
-              </div>
-            </div>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Parts Of Grade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="course name"
-                    required
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    step="any"
-                    min="0"
-                    class="form-control"
-                    placeholder="precent"
-                    required
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    min="0"
-                    class="form-control"
-                    placeholder="grade"
-                    required
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="btn btn-primary" id="enter" type="button">
-            Submit
-          </button>
-        </form>
-      </div>
-      <div class="expl-div">
-        <h2>Fill the form:</h2>
-        <p class="expl-text">
-          To fill out the "Add Course" form: 1. Enter the course name as a
-          string. 2. Specify the credit points as a float (include any decimal
-          values). 3. Select the year 1-7 values. 4. Choose the semester as
-          either "A" or "B". 5. In the table for parts of the grade, enter the
-          name, percent, and grade for each component. Once you've completed all
-          the required fields, submit the form to add the course. Note that the
-          specific form layout may vary.
-        </p>
-      </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script defer src="js/navbar.js"></script>
-    <script defer src="js/add_course.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loadEl = document.querySelector("#load");
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <body>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+        </head>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            "auth",
-            "database",
-            "firestore",
-            "functions",
-            "messaging",
-            "storage",
-            "analytics",
-            "remoteConfig",
-            "performance",
-          ].filter((feature) => typeof app[feature] === "function");
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(
-            ", "
-          )}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent =
-            "Error loading the Firebase SDK, check the console.";
-        }
-      });
-    </script>
-  </body>
+        <body>
+            <div id="navbar-animmenu">
+                <ul class="show-dropdown main-navbar">
+                    <div class="hori-selector">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <li>
+                        <a href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+                    </li>
+                    <a href="#" class="btn btn-info btn-lg logout1">
+                        <span class="glyphicon glyphicon-log-out"></span> Log out
+                    </a>
+                </ul>
+            </div>
+            <div class="container main-div mt-3">
+                <div class="form-div">
+                    <h1>Add Course</h1>
+                    <form id="add-course-form" action="">
+                        <div class="main-div">
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <select class="form-control form-select bg-dark text-white" id="year" required>
+                                    <option value="">Select Year</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="semester">Semester</label>
+                                <select class="form-control form-select bg-dark text-white" id="semester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="main-div">
+
+                            <div class="form-group">
+                                <div class="inputbox">
+                                    <input type="text" id="course" required>
+                                    <span>Course Name</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputbox">
+                                    <input type="number" step="any" min="0" id="points" required>
+                                    <span>Points</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Parts Of Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <tr>
+                                    <td><input type="text" class="form-control" placeholder="course name" required></td>
+                                    <td><input type="number" step="any" min="0" class="form-control"
+                                            placeholder="percent" required></td>
+                                    <td><input type="number" min="0" class="form-control" placeholder="grade" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="form-control" placeholder="course name" required></td>
+                                    <td><input type="number" step="any" min="0" class="form-control"
+                                            placeholder="percent" required></td>
+                                    <td><input type="number" min="0" class="form-control" placeholder="grade" required>
+                                    </td>
+                                    <td>
+                                        <button id="deleteBtn" class="cssbuttons-io-button delete-button">
+                                            <svg style="color: white" width="15" height="15" viewBox="0 0 15 15"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 8H4V7H11V8Z"
+                                                    fill="white"></path>
+                                            </svg>
+                                            <span>delete</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button id="addBtn" class="cssbuttons-io-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
+                            </svg>
+                            <span>Add</span>
+                        </button>
+
+
+
+                        <button class="btn btn-primary" id="enter" type="button">Submit</button>
+                    </form>
+
+                </div>
+                <div class="expl-div">
+                    <h2>Fill the form:</h2>
+                    <p class="expl-text">To fill out the "Add Course" form:
+
+                        1. Enter the course name as a string.
+                        2. Specify the credit points as a float (include any decimal values).
+                        3. Select the year 1-7 values.
+                        4. Choose the semester as either "A" or "B".
+                        5. In the table for parts of the grade, enter the name, percent, and grade for each component.
+
+                        Once you've completed all the required fields, submit the form to add the course. Note that the
+                        specific
+                        form layout may vary.</p>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="./js/add_course.js" type="module"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const loadEl = document.querySelector('#load');
+                    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+                    // // The Firebase SDK is initialized and available here!
+                    //
+                    // firebase.auth().onAuthStateChanged(user => { });
+                    // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+                    // firebase.firestore().doc('/foo/bar').get().then(() => { });
+                    // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+                    // firebase.messaging().requestPermission().then(() => { });
+                    // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+                    // firebase.analytics(); // call to activate
+                    // firebase.analytics().logEvent('tutorial_completed');
+                    // firebase.performance(); // call to activate
+                    //
+                    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+                    try {
+                        let app = firebase.app();
+                        let features = [
+                            'auth',
+                            'database',
+                            'firestore',
+                            'functions',
+                            'messaging',
+                            'storage',
+                            'analytics',
+                            'remoteConfig',
+                            'performance',
+                        ].filter(feature => typeof app[feature] === 'function');
+                        loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+                    } catch (e) {
+                        console.error(e);
+                        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+                    }
+                });
+            </script>
+        </body>
+
 </html>
