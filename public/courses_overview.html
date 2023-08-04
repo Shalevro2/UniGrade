@@ -22,6 +22,8 @@
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
+    <script defer src="js/navbar.js"></script>
+    
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/courses_overview.css" />
@@ -30,12 +32,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="container flex">
+    <div id="navbar-animmenu">
+        <ul class="show-dropdown main-navbar">
+            <div class="hori-selector">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <li class="active">
+                <a href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Overview</a>
+            </li>
+            <li>
+                <a href="add_course.html"><i class="far fa-address-book"></i>Add Course</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+            </li>
+            <a href="#" class="btn btn-info btn-lg logout1" id="logout1">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a>
+        </ul>
+    </div>
+    <div class="container flex main-div">
         <div class="row text-white justify-content-center m-3">
             <h1>Overview</h1>
         </div>
@@ -82,10 +111,10 @@
                     'remoteConfig',
                     'performance',
                 ].filter(feature => typeof app[feature] === 'function');
-                loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+                //loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
             } catch (e) {
                 console.error(e);
-                loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+                //loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
             }
         });
     </script>

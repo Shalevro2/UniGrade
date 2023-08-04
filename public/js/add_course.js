@@ -56,7 +56,7 @@ $(document).ready(()=>{
                 //console.log(name,points,year,semester);
 
                 const inputs = document.getElementsByClassName("type");
-                const percentInputs = document.getElementsByClassName("precent");
+                const precentInputs = document.getElementsByClassName("precent");
                 const gradeInputs = document.getElementsByClassName("grade");
 
                 const jsonArray = [];
@@ -64,7 +64,7 @@ $(document).ready(()=>{
                 for (let i = 0; i < inputs.length; i++) {
                   const jsonObject = {
                     type: inputs[i].value,
-                    percent: percentInputs[i].value,
+                    precent: precentInputs[i].value,
                     grade: gradeInputs[i].value,
                   };
                   jsonArray.push(jsonObject);
