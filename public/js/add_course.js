@@ -33,7 +33,7 @@ $(document).ready(()=>{
                 var field = $('#add-course-form');
     
                 if (field[0].checkValidity()) {
-                    console.log("ofir gf");
+                  
                     $("#div-success-alert").removeClass("d-none");
                     $("#div-failed-alert").addClass("d-none");
 
@@ -52,20 +52,38 @@ $(document).ready(()=>{
                 const points = $("#points").val();
                 const year = $("#year").val();
                 const semester = $("#semester").val();
-                console.log(name,points,year,semester);
+
+                //console.log(name,points,year,semester);
+
+                const inputs = document.getElementsByClassName("type");
+                const percentInputs = document.getElementsByClassName("precent");
+                const gradeInputs = document.getElementsByClassName("grade");
+
+                const jsonArray = [];
+
+                for (let i = 0; i < inputs.length; i++) {
+                  const jsonObject = {
+                    type: inputs[i].value,
+                    percent: percentInputs[i].value,
+                    grade: gradeInputs[i].value,
+                  };
+                  jsonArray.push(jsonObject);
+                }
+
+                console.log(jsonArray);
 
                 const course = new Course(name, points, year, semester);
+                course.grades = jsonArray;
 
                 if (!docsnap.exists()) {
+                    console.log("new");
                     setDoc(dbref, {courses : Object.assign({}, course)});
                 } else {
+                    console.log("exist");
                     updateDoc(dbref,{courses:arrayUnion(Object.assign({}, course))});
                 }
 
-                $("#course").val("");
-                $("#points").val("");
-                $("#year").val("");
-                $("#semester").val("");
+                setTimeout(refreshPage, 2000);
 
             });
 
@@ -84,6 +102,10 @@ $(document).ready(()=>{
 
 });
 
+function refreshPage() {
+  window.location.reload();
+}
+
 
     
       
@@ -96,10 +118,10 @@ $(document).ready(function() {
     // Add button click event
     $("#addBtn").click(function() {
       var newRow = `
-        <tr>
-          <td><input type="text" class="form-control bg-dark text-white" placeholder="course name" required></td>
-          <td><input type="number" step="any" min="0" class="form-control bg-dark text-white" placeholder="percent" required></td>
-          <td><input type="number" min="0" class="form-control bg-dark text-white" placeholder="grade" required></td>
+        <tr class="delete">
+          <td><input type="text" class="type form-control bg-dark text-white" placeholder="course name" required></td>
+          <td><input type="number" step="any" min="0" class="precent form-control bg-dark text-white" placeholder="percent" required></td>
+          <td><input type="number" min="0" class="grade form-control bg-dark text-white" placeholder="grade" required></td>
           <td>
             <button class="cssbuttons-io-button delete-button">
               <svg style="color: white" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11 8H4V7H11V8Z" fill="white"></path> </svg>
