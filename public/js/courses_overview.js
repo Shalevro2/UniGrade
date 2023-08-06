@@ -85,7 +85,11 @@ function pieCulc(docsnap){
     var points = 0;
     var data = docsnap.data().courses
     for (var i = 0; i < data.length; i++) {
-        avg += data[i].grade*data[i].points;
+        var grade = 0;
+        for (var j = 0; j < data[i].grades.length; j++){
+            grade += data[i].grades[j].precent*0.01*data[i].grades[j].grade;
+        }
+        avg += grade*data[i].points;
         points += parseFloat(data[i].points);
         }
     avg /= points;
@@ -108,8 +112,11 @@ function lineCulc(docsnap){
             }
             for (var i = 0; i < data.length; i++){
                 if(data[i].year == year && data[i].semester == sem){
-                    console.log(year+" "+sem+" "+data[i].grade +" " + data[i].points)
-                    avg += data[i].grade*data[i].points;
+                    var grade = 0;
+                    for (var j = 0; j < data[i].grades.length; j++){
+                        grade += data[i].grades[j].precent*0.01*data[i].grades[j].grade;
+                    }
+                    avg += grade*data[i].points;
                     points += parseFloat(data[i].points);
                 }
             }
@@ -119,7 +126,6 @@ function lineCulc(docsnap){
                 avg_arr.push([year+semester-1, avg/points, points]);
         }
     }
-    console.log(avg_arr);
     for(var i=1; i<avg_arr.length; i++){
         avg_arr[i] = [
             avg_arr[i][0],
@@ -127,7 +133,6 @@ function lineCulc(docsnap){
             avg_arr[i][2]+avg_arr[i-1][2]
         ]
     }
-    console.log(avg_arr);
     lineChart(avg_arr);
 }
 
