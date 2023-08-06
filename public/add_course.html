@@ -47,10 +47,10 @@
                         <div class="right"></div>
                     </div>
                     <li>
-                        <a href="courses_overview.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        <a href="courses_overview.html"><i class="fas fa-tachometer-alt"></i>Overview</a>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                        <a href="javascript:void(0);"><i class="far fa-address-book"></i>Add Course</a>
                     </li>
                     <li>
                         <a href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
@@ -125,6 +125,15 @@
                             </thead>
                             <tbody id="tbody">
                                 <tr>
+                                    <td><input type="text" class="type form-control bg-dark text-white" placeholder="component" required></td>
+                                    <td><input type="number" step="any" min="0" class="precent form-control bg-dark text-white"
+                                            placeholder="percent" required></td>
+                                    <td><input type="number" min="0" class="grade form-control bg-dark text-white" placeholder="grade" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!-- <td><input type="text" class="form-control bg-dark" placeholder="component" required></td>
+                                    <td><input type="number" step="any" min="0" class="form-control bg-dark"
                                     <td><input type="text" class="form-control bg-dark text-white" placeholder="component" required></td>
                                     <td><input type="number" step="any" min="0" class="form-control bg-dark text-white"
                                             placeholder="percent" required></td>
@@ -145,24 +154,20 @@
                                                     fill="white"></path>
                                             </svg>
                                             <span>delete</span>
-                                        </button>
-                                    </td>
+                                        </button> 
+                                    </td>-->
                                 </tr>
                             </tbody>
                         </table>
-
-                        <button id="addBtn" class="cssbuttons-io-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
-                            </svg>
-                            <span>Add</span>
-                        </button>
-
-
-
-                        <button class="btn btn-primary" id="enter" type="button">Submit</button>
                     </form>
+                    <button id="addBtn" class="cssbuttons-io-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
+                        </svg>
+                        <span>Add</span>
+                    </button>
+                    <button class="btn btn-primary" id="enter" type="button">Submit</button>
 
                 </div>
                 <div class="expl-div">
