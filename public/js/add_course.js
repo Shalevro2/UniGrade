@@ -83,7 +83,7 @@ $(document).ready(()=>{
                     updateDoc(dbref,{courses:arrayUnion(Object.assign({}, course))});
                 }
 
-                setTimeout(refreshPage, 2000);
+                setTimeout(refreshPage, 1500);
 
             });
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
     $("#addBtn").click(function() {
       var newRow = `
         <tr class="delete">
-          <td><input type="text" class="type form-control bg-dark text-white" placeholder="course name" required></td>
+          <td><input type="text" class="type form-control bg-dark text-white" placeholder="component" required></td>
           <td><input type="number" step="any" min="0" class="precent form-control bg-dark text-white" placeholder="percent" required></td>
           <td><input type="number" min="0" class="grade form-control bg-dark text-white" placeholder="grade" required></td>
           <td>
