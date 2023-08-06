@@ -87,7 +87,7 @@ $(document).ready(()=>{
 
             });
 
-            $("#logout").click(()=>{            ///  save to signout button
+            $("#logout1").click(()=>{            ///  save to signout button
                 signOut(auth).then(() => {
                     // Sign-out successful.
                   }).catch((error) => {
@@ -95,7 +95,6 @@ $(document).ready(()=>{
                   });
             });
         } else {
-            alert("you are not log in");
             window.location.href="./sign_up.html";
         }
       });
