@@ -32,17 +32,7 @@ $(document).ready(()=>{
             $("#enter").on('click', async(e)=>{
                 var field = $('#add-course-form');
     
-                if (field[0].checkValidity()) {
-                  
-                    $("#div-success-alert").removeClass("d-none");
-                    $("#div-failed-alert").addClass("d-none");
-
-                } else {
-                    // Field is empty, show an error message or perform other actions
-                    $("#div-failed-alert").removeClass("d-none");
-                    $("#div-success-alert").addClass("d-none");
-                    return;
-                }
+                
                 console.log("click"); //test
 
                 const dbref = doc(db, "courses", uid);
@@ -60,16 +50,42 @@ $(document).ready(()=>{
                 const gradeInputs = document.getElementsByClassName("grade");
 
                 const jsonArray = [];
-
+                let temp_sum = 0;
                 for (let i = 0; i < inputs.length; i++) {
                   const jsonObject = {
                     type: inputs[i].value,
                     precent: precentInputs[i].value,
                     grade: gradeInputs[i].value,
                   };
+                  temp_sum += parseFloat(precentInputs[i].value);
                   jsonArray.push(jsonObject);
-                }
+                  if(gradeInputs[i].value > 100 || gradeInputs[i].value < 0){
+                    $("#div-success-alert").addClass("d-none");
+                    $("#div-failed-alert").removeClass("d-none");
+                    $("#div-failed-alert").text("Grade of component is illegal")
+                    return;
+                  }
 
+                }
+                console.log(temp_sum)
+                if (temp_sum != 100) {
+                  $("#div-success-alert").addClass("d-none");
+                  $("#div-failed-alert").removeClass("d-none");
+                  $("#div-failed-alert").text("Total precent of grades should be 100")
+                  return;
+                } 
+                if (field[0].checkValidity()) {
+                  
+                  $("#div-success-alert").removeClass("d-none");
+                  $("#div-failed-alert").addClass("d-none");
+
+                } else {
+                    // Field is empty, show an error message or perform other actions
+                    $("#div-failed-alert").removeClass("d-none");
+                    $("#div-success-alert").addClass("d-none");
+                    $("#div-failed-alert").text("Please fill in the required field!")
+                    return;
+                }
                 console.log(jsonArray);
 
                 const course = new Course(name, points, year, semester);
