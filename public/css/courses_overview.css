@@ -1,10 +1,49 @@
 body {
-    animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+	animation: fadeInAnimation ease 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 .main-div {
-    display: grid;
-    grid-gap: 10px; /* Gap between the columns */
-  }
+	display: grid;
+	grid-gap: 10px; /* Gap between the columns */
+}
+
+/* Add these styles to your existing CSS files or create a new CSS file and link it in your HTML */
+
+/* Style for column headlines */
+table th {
+	color: var(--unigrade-color);
+	font-weight: bold;
+}
+
+/* Narrow columns and add borders */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table,
+th,
+td {
+	border: 1px solid white;
+}
+
+/* Add padding and center-align text in cells */
+table td,
+table th {
+	padding: 8px;
+	text-align: center;
+}
+
+th,
+td {
+	width: 220px;
+}
+.table-wrapper {
+	padding: 0 15px;
+}
+.table {
+	width: auto !important;
+	background-color: rgb(26, 25, 24) !important;
+}
