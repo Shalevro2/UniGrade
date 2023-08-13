@@ -26,7 +26,7 @@
 
         <script defer src="/__/firebase/init.js?useEmulator=true"></script>
         <link rel="stylesheet" type="text/css" href="css/common.css" />
-        <link rel="stylesheet" type="text/css" href="css/courses_overview.css" />
+        <link rel="stylesheet" type="text/css" href="css/years_avg.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -45,13 +45,13 @@
                     <div class="right"></div>
                 </div>
                 <li class="active">
-                    <a href="javascript:void(0);"><i class=""></i>Overview</a>
+                    <a href="courses_overview.html"><i class=""></i>Overview</a>
                 </li>
                 <li>
                     <a href="add_course.html"><i class=""></i>Add Course</a>
                 </li>
                 <li>
-                    <a href="years_avg.html"><i class=""></i>Years Avarage</a>
+                    <a href="javascript:void(0);"><i class=""></i>Years Avarage</a>
                 </li>
                 <a href="#" class="btn btn-info btn-lg logout1" id="logout1">
                     <span class="glyphicon glyphicon-log-out"></span> Log out
@@ -60,21 +60,13 @@
         </div>
         <div class="container flex main-div">
             <div class="row text-white justify-content-center m-3">
-                <h1>Overview</h1>
+                <h1>Years Avarage</h1>
             </div>
-            <div class="row justify-content-center">
-                <div id="piechart" class="m-3"></div>
-                <div id="lineChart" class="m-3"></div>
-            </div>
-            
-    </div>
-    <div class="container flex main-div">
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', { packages: ['corechart'] });     
-        </script>
-        <script src="./js/courses_overview.js" type="module"></script>
+        <script src="./js/years_avg.js" type="module"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const loadEl = document.querySelector('#load');
@@ -113,28 +105,6 @@
                 }
             });
         </script>
-        <div class="row justify-content-center table-wrapper">
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th colspan="5">Courses</th>
-                    </tr>
-
-                    <tr>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Semester</th>
-                        <th>Points</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
-                <tbody id="courses-table-body">
-                    <!-- Courses will be dynamically added here -->
-                </tbody>
-            </table>
-        </div>
-
     </body>
 
 </html>
