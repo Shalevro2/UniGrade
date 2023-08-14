@@ -46,12 +46,14 @@ function displayCoursesTable(courses) {
 		const semesterCell = createTableCell(course.semester);
 		const pointsCell = createTableCell(course.points);
 		const gradeCell = createTableCell(calculateTotalGrade(course.grades));
+		const delBut = createTableCell();
 
 		row.appendChild(nameCell);
 		row.appendChild(yearCell);
 		row.appendChild(semesterCell);
 		row.appendChild(pointsCell);
 		row.appendChild(gradeCell);
+		row.appendChild(delBut);
 
 		tableBody.appendChild(row);
 	});
@@ -98,7 +100,7 @@ function pie(avg) {
 		height: 350,
 		pieHole: 0.6,
 		slices: {
-			0: { color: '#DC7B19' },
+			0: { color: '#26a6ce' },
 			1: { color: 'transparent' },
 		},
 		animation: {
