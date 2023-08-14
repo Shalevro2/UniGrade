@@ -46,14 +46,12 @@ function displayCoursesTable(courses) {
 		const semesterCell = createTableCell(course.semester);
 		const pointsCell = createTableCell(course.points);
 		const gradeCell = createTableCell(calculateTotalGrade(course.grades));
-		const delBut = createTableCell();
 
 		row.appendChild(nameCell);
 		row.appendChild(yearCell);
 		row.appendChild(semesterCell);
 		row.appendChild(pointsCell);
 		row.appendChild(gradeCell);
-		row.appendChild(delBut);
 
 		tableBody.appendChild(row);
 	});
