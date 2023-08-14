@@ -38,14 +38,14 @@ $(document).ready(() => {
 
 function displayCoursesTable(courses) {
 	const tableBody = document.querySelector('#courses-table-body');
-
-	courses.forEach((course) => {
+	const isArray = Array.isArray(courses);
+	if (!isArray) {
 		const row = document.createElement('tr');
-		const nameCell = createTableCell(course.name);
-		const yearCell = createTableCell(course.year);
-		const semesterCell = createTableCell(course.semester);
-		const pointsCell = createTableCell(course.points);
-		const gradeCell = createTableCell(calculateTotalGrade(course.grades));
+		const nameCell = createTableCell(courses.name);
+		const yearCell = createTableCell(courses.year);
+		const semesterCell = createTableCell(courses.semester);
+		const pointsCell = createTableCell(courses.points);
+		const gradeCell = createTableCell(calculateTotalGrade(courses.grades));
 
 		row.appendChild(nameCell);
 		row.appendChild(yearCell);
@@ -54,7 +54,24 @@ function displayCoursesTable(courses) {
 		row.appendChild(gradeCell);
 
 		tableBody.appendChild(row);
-	});
+	} else {
+		courses.forEach((course) => {
+			const row = document.createElement('tr');
+			const nameCell = createTableCell(course.name);
+			const yearCell = createTableCell(course.year);
+			const semesterCell = createTableCell(course.semester);
+			const pointsCell = createTableCell(course.points);
+			const gradeCell = createTableCell(calculateTotalGrade(course.grades));
+
+			row.appendChild(nameCell);
+			row.appendChild(yearCell);
+			row.appendChild(semesterCell);
+			row.appendChild(pointsCell);
+			row.appendChild(gradeCell);
+
+			tableBody.appendChild(row);
+		});
+	}
 }
 
 function createTableCell(content) {
