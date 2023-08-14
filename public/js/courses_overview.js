@@ -98,7 +98,7 @@ function pie(avg) {
 		height: 350,
 		pieHole: 0.6,
 		slices: {
-			0: { color: '#DC7B19' },
+			0: { color: '#26a6ce' },
 			1: { color: 'transparent' },
 		},
 		animation: {
